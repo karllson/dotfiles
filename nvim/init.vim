@@ -1,7 +1,15 @@
-:set number relativenumber
 :let mapleader = ","
 set nocompatible             
 set encoding=UTF-8
+:set number relativenumber
+" Spaces and Tabs
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " number of spaces to use for autoindent
+set expandtab       " tabs are space
+set autoindent
+set copyindent      " copy indent from the previous line
+
 syntax enable
 
 " Vundle Plugin Manager
@@ -12,23 +20,30 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mhartington/oceanic-next' " Neovim theme
 Plugin 'ayu-theme/ayu-vim' " Ayu vim
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } "fuzzy search
 Plugin 'junegunn/fzf.vim' "fuzzy search
 Plugin 'neoclide/coc.nvim', {'branch': 'release'} "auto completition
 Plugin 'leafgarland/typescript-vim' " typescript syntax highlighting
+Plugin 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plugin 'pangloss/vim-javascript'
+Plugin 'morhetz/gruvbox' " The theme
 call vundle#end()
 filetype plugin indent on
+
 
 " Tabline settings
 let g:airline#extensions#tabline#enabled = 1
 
 " KeyMaps
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-j> :bprevious<CR>
-nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :Files<CR>
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+nnoremap <S-j> :bprevious<CR> 
+nnoremap <S-l>   :bnext<CR>
+nnoremap <C-w>   :bd<CR>
+
 
 
 " Exit Vim if NERDTree is the only window left.
@@ -39,13 +54,15 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 if (has("termguicolors"))
  set termguicolors
 endif
-"colorscheme OceanicNext
-"let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+autocmd vimenter * ++nested colorscheme gruvbox
+let g:gruvbox_italic = 1
+set background=dark
 
 " -- COC SETTINGS TAKEN FROM GITHUB 
+
+" OWN COC COMMANS
+command! -nargs=0 Prettier :CocCommand prettier.formatFile " make :Prettier command available
+
 " TextEdit might fail if hidden is not set.
 set hidden
 

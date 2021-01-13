@@ -17,3 +17,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.nvim/bundle/Vundle.vi
 # Link neovim
 rm -rf ~/.config/nvim
 ln -sf ~/dotfiles/nvim ~/.config
+
+# Link tmux
+ln -s ~/dotfiles/tmux/tmux.config ~/.tmux.conf

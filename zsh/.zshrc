@@ -14,6 +14,7 @@ alias pa="php artisan"
 alias ip="ipconfig getifaddr en0"
 alias c="clear"
 alias tf="terraform"
+alias python="python3"
 
 # Fuzzy search via fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

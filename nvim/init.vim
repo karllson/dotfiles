@@ -9,6 +9,8 @@ set shiftwidth=4    " number of spaces to use for autoindent
 set expandtab       " tabs are space
 set autoindent
 set copyindent      " copy indent from the previous line
+set ttimeoutlen=50 "faster normal/insert recovery"
+set timeoutlen=1000 "faster normal/insert recovery"
 
 syntax enable
 
@@ -30,6 +32,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'morhetz/gruvbox' " The theme
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-eunuch'
 call vundle#end()
 filetype plugin indent on
 
@@ -44,9 +48,10 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 nnoremap <S-j> :bprevious<CR> 
 nnoremap <S-l>   :bnext<CR>
-nnoremap <C-w>   :bd<CR>
-
-
+nnoremap <C-w>l <C-W><Right>
+nnoremap <C-w>j <C-W><Left>
+nnoremap <C-w>i <C-W><Up>
+nnoremap <C-w>k <C-W><Down>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -208,3 +213,10 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+imap cll console.log();<Esc>==f(a
+" Console log from visual mode on next line, puts visual selection inside parentheses
+vmap cll yocll<Esc>p
+" Console log from normal mode, inserted on next line with word your on inside parentheses
+nmap cll yiwocll<Esc>p

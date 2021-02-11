@@ -37,8 +37,10 @@ Plugin 'tpope/vim-eunuch'
 call vundle#end()
 filetype plugin indent on
 
+" NERDTree width
+let g:NERDTreeWinSize=60
 
-" Tabline settings
+"" Tabline settings
 let g:airline#extensions#tabline#enabled = 1
 
 " KeyMaps
@@ -52,15 +54,15 @@ nnoremap <C-w>l <C-W><Right>
 nnoremap <C-w>j <C-W><Left>
 nnoremap <C-w>i <C-W><Up>
 nnoremap <C-w>k <C-W><Down>
+noremap <Leader>s :update<CR>
+
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
 " Theme
-if (has("termguicolors"))
- set termguicolors
-endif
+set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_italic = 1
 set background=dark

@@ -16,11 +16,8 @@ alias pa="php artisan"
 alias ip="ipconfig getifaddr en0"
 alias c="clear"
 alias tf="terraform"
-<<<<<<< HEAD
 alias soundreset="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
-=======
 alias python="python3"
->>>>>>> e3a0922a0486cf2b854bcfc86aee55f4ca76aa72
 
 # Fuzzy search via fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

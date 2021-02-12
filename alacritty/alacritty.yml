@@ -23,7 +23,7 @@ font:
 
   use_thin_strokes: true
 
-background_opacity: 0.9
+background_opacity: 1.0
 
 key_bindings:
   - { key: F12, mods: Control, action: IncreaseFontSize }

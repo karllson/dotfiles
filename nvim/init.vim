@@ -2,16 +2,32 @@
 set nocompatible             
 set encoding=UTF-8
 :set number relativenumber
-" Spaces and Tabs
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
-set expandtab       " tabs are space
+set tabstop=4 softtabstop=4
+set shiftwidth=4    
+set expandtab
 set autoindent
-set copyindent      " copy indent from the previous line
-set ttimeoutlen=50 "faster normal/insert recovery"
-set timeoutlen=1000 "faster normal/insert recovery"
-
+set copyindent
+set ttimeoutlen=50 
+set timeoutlen=1000
+set smartindent
+set termguicolors
+set hidden
+set background=dark
+set nobackup
+set nowritebackup
+set noswapfile
+set cmdheight=1
+set updatetime=300
+set shortmess+=c " Don't pass messages to |ins-completion-menu|.
+set nohlsearch
+set noerrorbells
+set nowrap
+set incsearch
+set scrolloff=8
+set completeopt=menuone,noinsert,noselect
+set colorcolumn=80
+set signcolumn=yes
+ 
 syntax enable
 
 " Vundle Plugin Manager
@@ -29,7 +45,7 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'} "auto completition
 Plugin 'leafgarland/typescript-vim' " typescript syntax highlighting
 Plugin 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plugin 'pangloss/vim-javascript'
-Plugin 'morhetz/gruvbox' " The theme
+Plugin 'gruvbox-community/gruvbox'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive'
@@ -37,10 +53,7 @@ Plugin 'tpope/vim-eunuch'
 call vundle#end()
 filetype plugin indent on
 
-" NERDTree width
 let g:NERDTreeWinSize=60
-
-"" Tabline settings
 let g:airline#extensions#tabline#enabled = 1
 
 " KeyMaps
@@ -55,17 +68,12 @@ nnoremap <C-w>j <C-W><Left>
 nnoremap <C-w>i <C-W><Up>
 nnoremap <C-w>k <C-W><Down>
 noremap <Leader>s :update<CR>
-
-
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-
+"
 " Theme
-set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_italic = 1
-set background=dark
+highlight Normal guibg=none
+highlight NonText guibg=none
 
 " -- COC SETTINGS TAKEN FROM GITHUB 
 
@@ -73,21 +81,10 @@ set background=dark
 command! -nargs=0 Prettier :CocCommand prettier.formatFile " make :Prettier command available
 
 " TextEdit might fail if hidden is not set.
-set hidden
 
 " Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=1
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.

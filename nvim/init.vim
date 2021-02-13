@@ -25,7 +25,7 @@ set nowrap
 set incsearch
 set scrolloff=8
 set completeopt=menuone,noinsert,noselect
-set colorcolumn=80
+set colorcolumn=120
 set signcolumn=yes
  
 syntax enable
@@ -67,13 +67,17 @@ nnoremap <C-w>l <C-W><Right>
 nnoremap <C-w>j <C-W><Left>
 nnoremap <C-w>i <C-W><Up>
 nnoremap <C-w>k <C-W><Down>
-noremap <Leader>s :update<CR>
-"
+nnoremap <Leader>w :bd<CR>
+nnoremap <Leader>s :update<CR>
+nnoremap <Leader>t :NERDTreeFind<cr>
+
+
 " Theme
 autocmd vimenter * ++nested colorscheme gruvbox
+" Transparent BG
+" hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 let g:gruvbox_italic = 1
-highlight Normal guibg=none
-highlight NonText guibg=none
 
 " -- COC SETTINGS TAKEN FROM GITHUB 
 

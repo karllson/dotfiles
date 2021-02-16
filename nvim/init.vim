@@ -119,4 +119,13 @@ autocmd vimenter * ++nested colorscheme gruvbox
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 let g:gruvbox_italic = 1
 
+" NEOFORMAT
+let g:neoformat_php_phpcsfixer= {
+           \ 'exe': 'php-cs-fixer',
+           \ 'args': ['fix', '-q'],
+           \ 'replace': 1,
+           \ }
+
+
+let g:neoformat_enabled_php= ['phpcsfixer']
 

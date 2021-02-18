@@ -1,4 +1,5 @@
-:let mapleader = ","
+:let mapleader = " "
+
 set nocompatible             
 set encoding=UTF-8
 :set number relativenumber

@@ -73,6 +73,12 @@ nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>s :write<CR>
 nnoremap <Leader>t :NERDTreeFind<cr>
 nnoremap <silent> <leader>f :Format<CR>
+ 
+" Telescope find files
+nnoremap <C-p> <cmd>Telescope git_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
 " Console log 
 imap cll console.log();<Esc>==f(a
@@ -198,9 +204,9 @@ nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <leader>fo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <leader>fs  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.

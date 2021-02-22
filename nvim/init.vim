@@ -24,7 +24,6 @@ set noerrorbells
 set nowrap
 set incsearch
 set scrolloff=8
-set colorcolumn=120
 set signcolumn=yes
 
 filetype off
@@ -34,15 +33,9 @@ filetype plugin indent on
 " Vundle Plugin Manager
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'leafgarland/typescript-vim' " typescript syntax highlighting
-Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
-Plug 'pangloss/vim-javascript'
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 " Telescope
 Plug 'nvim-lua/popup.nvim'

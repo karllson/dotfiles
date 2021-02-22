@@ -11,19 +11,13 @@ scrolling:
   multiplier: 3
 
 font:
-  normal:
-    family: Operator Mono
-    style: Book
-
-  bold:
-    family: Operator Mono
-    style: Bold
-
-  size: 22.0
-
+  size: 18.0
   use_thin_strokes: true
+  offset:
+    x: 0
+    y: 18
 
-background_opacity: 1.0
+background_opacity: 0.8
 
 key_bindings:
   - { key: F12, mods: Control, action: IncreaseFontSize }

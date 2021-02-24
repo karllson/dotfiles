@@ -57,12 +57,10 @@ set shortmess+=c " Don't pass messages to ins-completion-menu
 nnoremap <C-t> :NERDTreeToggle<CR>
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-nnoremap <S-j> :bprevious<CR> 
-nnoremap <S-l> :bnext<CR>
-nnoremap <C-w>l <C-W><Right>
-nnoremap <C-w>j <C-W><Left>
-nnoremap <C-w>i <C-W><Up>
-nnoremap <C-w>k <C-W><Down>
+nnoremap <C-h> <C-W><Left>
+nnoremap <C-j> <C-W><Down>
+nnoremap <C-k> <C-W><Up>
+nnoremap <C-l> <C-W><Right>
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>s :write<CR>
 nnoremap <Leader>t :NERDTreeFind<cr>

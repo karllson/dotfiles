@@ -43,6 +43,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
+Plug 'vim-test/vim-test'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 
@@ -54,7 +57,8 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c " Don't pass messages to ins-completion-menu
 
 " KeyMaps
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeFind<cr>
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 nnoremap <C-h> <C-W><Left>
@@ -63,7 +67,6 @@ nnoremap <C-k> <C-W><Up>
 nnoremap <C-l> <C-W><Right>
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>s :write<CR>
-nnoremap <Leader>t :NERDTreeFind<cr>
 nnoremap <silent> <leader>f :Format<CR>
  
 " Telescope find files
@@ -76,6 +79,20 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 imap cll console.log();<Esc>==f(a
 vmap cll yocll<Esc>p
 nmap cll yiwocll<Esc>p
+
+" Testing
+nnoremap <leader>tn :TestNearest<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tl :TestLast<CR>
+" Normal Mode helper
+tmap <C-o> <C-\><C-n> 
+
+nnoremap <silent> <C-t>c :FloatermNew<CR>
+nnoremap <silent> <C-t>t :FloatermToggle<CR>
+nnoremap <silent> <C-t>l :FloatermNext<CR>
+nnoremap <silent> <C-t>h :FloatermPrev<CR>
+
 
 
 " Theme

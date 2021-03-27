@@ -11,6 +11,8 @@ scrolling:
   multiplier: 3
 
 font:
+  normal:
+    family: "Hack Nerd Font"
   size: 18.0
   use_thin_strokes: true
   offset:

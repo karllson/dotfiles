@@ -2,7 +2,7 @@
 
 set nocompatible             
 set encoding=UTF-8
-:set number relativenumber
+set number relativenumber
 set tabstop=4 softtabstop=4
 set shiftwidth=4    
 set expandtab
@@ -45,7 +45,11 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'vim-test/vim-test'
-Plug 'voldikss/vim-floaterm'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'mhartington/oceanic-next'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -57,6 +61,7 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c " Don't pass messages to ins-completion-menu
 
 " KeyMaps
+nnoremap qqq :qa!<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>n :NERDTreeFind<cr>
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
@@ -76,9 +81,9 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
 " Console log 
-imap cll console.log();<Esc>==f(a
-vmap cll yocll<Esc>p
-nmap cll yiwocll<Esc>p
+imap clog console.log();<Esc>==f(a
+vmap clog yocll<Esc>p
+nmap clog yiwocll<Esc>p
 
 " Testing
 nnoremap <leader>tn :TestNearest<CR>
@@ -88,19 +93,48 @@ nnoremap <leader>tl :TestLast<CR>
 " Normal Mode helper
 tmap <C-o> <C-\><C-n> 
 
-nnoremap <silent> <C-t>c :FloatermNew<CR>
-nnoremap <silent> <C-t>t :FloatermToggle<CR>
-nnoremap <silent> <C-t>l :FloatermNext<CR>
-nnoremap <silent> <C-t>h :FloatermPrev<CR>
+" Quickfix
+" Taken from the awesome prime
+nnoremap <leader>qk :cnext<CR>
+nnoremap <leader>qj :cprev<CR>
+nnoremap <leader>ql :call ToggleQFList(1)<CR>
+nnoremap <leader>qll :call ToggleQFList(0)<CR>
 
+let g:the_primeagen_qf_l = 0
+let g:the_primeagen_qf_g = 0
 
+fun! ToggleQFList(global)
+    if g:the_primeagen_qf_l == 1 || g:the_primeagen_qf_g == 1 
+        if a:global == 1
+            let g:the_primeagen_qf_g = 0
+            cclose
+        else
+            let g:the_primeagen_qf_l = 0
+            lclose
+        endif
+    else
+        if a:global == 1
+            let g:the_primeagen_qf_g = 1
+            copen
+        else
+           let g:the_primeagen_qf_l = 1
+            lopen
+        endif
+    endif
+endfun
 
 " Theme
-autocmd vimenter * ++nested colorscheme gruvbox
-" Transparent BG
-" hi Normal guibg=NONE ctermbg=NONE
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-let g:gruvbox_italic = 1
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+let g:airline#extensions#tabline#enabled = 1
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
+
+
+
+" Commands
+command! -nargs=0 Tsc :call CocAction('runCommand', 'tsserver.watchBuild') " tsc to quickfix
 
 " ------------------------------------------------------------------------
 " Coc

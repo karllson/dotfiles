@@ -34,9 +34,8 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-eunuch'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tpope/vim-eunuch' " delete buffers etc
+" Plug 'maxmellon/vim-jsx-pretty'
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -44,12 +43,13 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'vim-test/vim-test'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 
@@ -123,9 +123,7 @@ endfun
 " Theme
 let g:NERDTreeWinSize=60
 let g:airline#extensions#tabline#enabled = 1
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+colorscheme gruvbox
 
 " Commands
 command! -nargs=0 Tsc :call CocAction('runCommand', 'tsserver.watchBuild') " tsc to quickfix

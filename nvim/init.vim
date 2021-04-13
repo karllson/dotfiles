@@ -33,7 +33,6 @@ filetype plugin indent on
 " Vundle Plugin Manager
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
-Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-eunuch'
@@ -45,16 +44,14 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'vim-test/vim-test'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
-
-let g:NERDTreeWinSize=60
-let g:airline#extensions#tabline#enabled = 1
 
 " Completion
 set completeopt=menuone,noinsert,noselect
@@ -72,7 +69,8 @@ nnoremap <C-k> <C-W><Up>
 nnoremap <C-l> <C-W><Right>
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>s :write<CR>
-nnoremap <silent> <leader>f :Format<CR>
+nnoremap <Right> :bnext<CR>
+nnoremap <Left> :bprevious<CR>
  
 " Telescope find files
 nnoremap <C-p> <cmd>Telescope git_files<cr>
@@ -80,25 +78,24 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
-" Console log 
-imap clog console.log();<Esc>==f(a
-vmap clog yocll<Esc>p
-nmap clog yiwocll<Esc>p
-
 " Testing
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 nnoremap <leader>tl :TestLast<CR>
-" Normal Mode helper
-tmap <C-o> <C-\><C-n> 
 
-" Quickfix
+" Quickfix List
 " Taken from the awesome prime
 nnoremap <leader>qk :cnext<CR>
 nnoremap <leader>qj :cprev<CR>
 nnoremap <leader>ql :call ToggleQFList(1)<CR>
 nnoremap <leader>qll :call ToggleQFList(0)<CR>
+
+" Copy to and from clipboard
+nnoremap <leader>yy "+y
+vnoremap <leader>yy "+y
+nnoremap <leader>pp "+p
+vnoremap <leader>pp "+p
 
 let g:the_primeagen_qf_l = 0
 let g:the_primeagen_qf_g = 0
@@ -124,14 +121,11 @@ fun! ToggleQFList(global)
 endfun
 
 " Theme
+let g:NERDTreeWinSize=60
+let g:airline#extensions#tabline#enabled = 1
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-let g:airline#extensions#tabline#enabled = 1
 colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
-
-
-
 
 " Commands
 command! -nargs=0 Tsc :call CocAction('runCommand', 'tsserver.watchBuild') " tsc to quickfix

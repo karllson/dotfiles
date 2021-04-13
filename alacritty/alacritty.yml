@@ -19,8 +19,6 @@ font:
     x: 0
     y: 18
 
-background_opacity: 0.8
-
 key_bindings:
   - { key: F12, mods: Control, action: IncreaseFontSize }
   - { key: F11, mods: Control, action: DecreaseFontSize }

@@ -14,10 +14,14 @@ font:
   normal:
     family: "Hack Nerd Font"
   size: 18.0
-  use_thin_strokes: true
   offset:
     x: 0
     y: 18
+
+live_config_reload: true
+
+shell:
+  program: /usr/local/bin/zsh
 
 key_bindings:
   - { key: F12, mods: Control, action: IncreaseFontSize }

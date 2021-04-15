@@ -14,4 +14,7 @@ ln -sf ~/dotfiles/alacritty ~/.config
 # TMux
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
+# Yabai window manager
+ln -sf ~/dotfiles/yabai/config ~/.yabairc
+chmod +x ~/.yabairc
 

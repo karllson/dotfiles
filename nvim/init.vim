@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch' " delete buffers etc
-" Plug 'maxmellon/vim-jsx-pretty'
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -48,8 +47,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'edkolev/tmuxline.vim'
 Plug 'gruvbox-community/gruvbox'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 
@@ -123,7 +122,9 @@ endfun
 " Theme
 let g:NERDTreeWinSize=60
 let g:airline#extensions#tabline#enabled = 1
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme OceanicNext
+
 
 " Commands
 command! -nargs=0 Tsc :call CocAction('runCommand', 'tsserver.watchBuild') " tsc to quickfix

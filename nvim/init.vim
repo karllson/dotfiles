@@ -70,6 +70,7 @@ nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>s :write<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprevious<CR>
+tnoremap <Esc><Esc> <C-\><C-n>
  
 " Telescope find files
 nnoremap <C-p> <cmd>Telescope git_files<cr>

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Link zsh
-ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/zsh/config ~/.zshrc
 
 # Link neovim
 rm -rf ~/.config/nvim
@@ -14,7 +14,7 @@ ln -sf ~/dotfiles/alacritty ~/.config
 # TMux
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-# Yabai window manager
-ln -sf ~/dotfiles/yabai/config ~/.yabairc
-chmod +x ~/.yabairc
+# Kitty terminal
+ln -sf ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf 
+
 

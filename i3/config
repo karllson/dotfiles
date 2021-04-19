@@ -180,5 +180,16 @@ bar {
         status_command i3status
 }
 
+# ---------------------------------------------------------------------------
+# CUSTOM
+# ---------------------------------------------------------------------------
+
+# Capslock to Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
+
+# Window borders
+for_window [class="^.*"] border pixel 0
+
+# Gaps (via Plugin)
+gaps inner 8

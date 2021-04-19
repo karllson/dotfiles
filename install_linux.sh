@@ -14,8 +14,7 @@ ln -sf ~/dotfiles/alacritty/alacritty_linux.yml ~/.config/alacritty/alacritty.ym
 
 # i3
 rm -rf ~/.config/i3
-mkdir -p ~/.config/i3
-ln -sf ~/dotfiles/i3/config ~/.config/i3/config
+ln -sf ~/dotfiles/i3 ~/.config
 
 
 

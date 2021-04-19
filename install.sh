@@ -9,7 +9,8 @@ ln -sf ~/dotfiles/nvim ~/.config
 
 # Alacritty
 rm -rf ~/.config/alacritty
-ln -sf ~/dotfiles/alacritty ~/.config
+mkdir -p ~/.config/alacritty
+ln -sf ~/dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # TMux
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf

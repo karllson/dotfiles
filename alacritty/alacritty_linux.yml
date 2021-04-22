@@ -25,6 +25,7 @@ key_bindings:
   - { key: F11, mods: Control, action: DecreaseFontSize }
   - { key: F10, mods: Control, action: ResetFontSize }
   - { key: N, mods: Shift|Alt, action: SpawnNewInstance }
+  - { key: Space,  mods: Shift|Control, action: ToggleViMode } 
 
 # Base16 OceanicNext 256 - alacritty color config
 # https://github.com/voronianski/oceanic-next-color-scheme

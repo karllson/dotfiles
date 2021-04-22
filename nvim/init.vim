@@ -48,6 +48,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'gruvbox-community/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 

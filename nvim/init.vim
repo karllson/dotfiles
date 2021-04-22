@@ -44,11 +44,10 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-test/vim-test'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'mhartington/oceanic-next'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'gruvbox-community/gruvbox'
 Plug 'mhartington/oceanic-next'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 call plug#end()
 
 
@@ -97,32 +96,8 @@ vnoremap <leader>yy "+y
 nnoremap <leader>pp "+p
 vnoremap <leader>pp "+p
 
-let g:the_primeagen_qf_l = 0
-let g:the_primeagen_qf_g = 0
-
-fun! ToggleQFList(global)
-    if g:the_primeagen_qf_l == 1 || g:the_primeagen_qf_g == 1 
-        if a:global == 1
-            let g:the_primeagen_qf_g = 0
-            cclose
-        else
-            let g:the_primeagen_qf_l = 0
-            lclose
-        endif
-    else
-        if a:global == 1
-            let g:the_primeagen_qf_g = 1
-            copen
-        else
-           let g:the_primeagen_qf_l = 1
-            lopen
-        endif
-    endif
-endfun
-
 " Theme
 let g:NERDTreeWinSize=60
-let g:airline#extensions#tabline#enabled = 1
 " colorscheme gruvbox
 colorscheme OceanicNext
 
@@ -248,3 +223,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+:lua require('statusline')

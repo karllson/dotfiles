@@ -190,6 +190,7 @@ exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
 
 # Window borders
 for_window [class="^.*"] border pixel 2
+client.focused #555555 #555555 #ffffff #2e9ef4 #6ddec2
 
-# Gaps (via Plugin)
-gaps inner 8
+
+

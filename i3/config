@@ -188,6 +188,10 @@ bar {
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
 
+# Delay time of key holds
+# Set initial delay 300ms, repeat 35ms#
+exec --no-startup-id xset r rate 200 35 
+
 # Window borders
 for_window [class="^.*"] border pixel 2
 client.focused #555555 #555555 #ffffff #2e9ef4 #6ddec2

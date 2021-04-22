@@ -187,9 +187,7 @@ bar {
 # Capslock to Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
-
 # Delay time of key holds
-# Set initial delay 300ms, repeat 35ms#
 exec --no-startup-id xset r rate 200 35 
 
 # Window borders

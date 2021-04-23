@@ -49,6 +49,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'ap/vim-buftabline'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 

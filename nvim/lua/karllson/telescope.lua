@@ -39,7 +39,7 @@ require('telescope').setup {
 
 -- telescope file and action functions
 local M = {}
-function M.lsp_code_actions()
+function M.dropdown(fn_name)
   local opts = themes.get_dropdown {
     winblend = 10,
     border = true,
@@ -47,7 +47,7 @@ function M.lsp_code_actions()
     shorten_path = false,
   }
 
-  require('telescope.builtin').lsp_code_actions(opts)
+  require('telescope.builtin')[fn_name](opts)
 end
 
 return M

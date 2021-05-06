@@ -33,7 +33,6 @@ require'compe'.setup {
 -- Mappings.
 local opts = { noremap=true, silent=true }
 buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -42,8 +41,13 @@ buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workleader_folder
 buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workleader_folders()))<CR>', opts)
 buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+buf_set_keymap('n', '<leader>ss', '<cmd>lua require(\'karllson.telescope\').dropdown(\'lsp_document_symbols\')<CR>', opts)
+buf_set_keymap('n', '<leader>ws', '<cmd>lua require(\'karllson.telescope\').dropdown(\'lsp_workspace_symbols\')<CR>', opts)
+buf_set_keymap('n', 'gr', '<cmd>lua require(\'karllson.telescope\').dropdown(\'lsp_references\')<CR>', opts)
+buf_set_keymap('n', 'gd', '<cmd>lua require(\'karllson.telescope\').dropdown(\'lsp_definitions\')<CR>', opts)
 
-buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+-- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+
 buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)

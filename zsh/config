@@ -9,7 +9,7 @@ ZSH_THEME="avit"
 # SET ESCAPE TIMEOUT
 KEYTIMEOUT=1
 
-plugins=(git yarn npm)
+plugins=(git yarn npm zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

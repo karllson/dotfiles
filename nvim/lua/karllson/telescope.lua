@@ -39,11 +39,11 @@ require('telescope').setup {
 
 -- telescope file and action functions
 local M = {}
-function M.dropdown(fn_name)
+function M.dropdown(fn_name, previewer)
   local opts = themes.get_dropdown {
     winblend = 10,
     border = true,
-    previewer = false,
+    previewer = (previewer or '0') == '1',
     shorten_path = false,
   }
 

@@ -19,3 +19,4 @@ alias python="python3"
 alias dotfiles="vim ~/dotfiles"
 
 
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"

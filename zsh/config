@@ -24,6 +24,3 @@ alias gd="git diff"
 
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 
-# Source stuff
-source ${(q-)PWD}/Git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-

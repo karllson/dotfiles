@@ -100,6 +100,8 @@ nnoremap <leader>gd <cmd>lua require('karllson.telescope').lsp_definitions()<cr>
 
 " Telescope
 nnoremap <leader>ft <cmd>lua require('karllson.telescope').file_tree()<cr>
+nnoremap <leader>ct <cmd>lua require('karllson.telescope').current_tree()<cr>
+nnoremap <leader>gc <cmd>lua require('karllson.telescope').grep_current()<cr>
 nnoremap <leader>fg <cmd>lua require('karllson.telescope').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('karllson.telescope').find_files()<cr>
 nnoremap <leader>gg <cmd>lua require('karllson.telescope').grep()<cr>

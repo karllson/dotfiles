@@ -63,12 +63,12 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'yamatsum/nvim-web-nonicons'
 call plug#end()
 
+" ------------------------------------------------------
 " KeyMaps
+" ------------------------------------------------------
 nnoremap qqq :qa!<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>n :NERDTreeFind<cr>
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 nnoremap <C-h> <C-W><Left>
 nnoremap <C-j> <C-W><Down>
 nnoremap <C-k> <C-W><Up>
@@ -77,7 +77,6 @@ nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>s :w!<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprevious<CR>
-tnoremap <Esc><Esc> <C-\><C-n>
 
 " LSP autocomplete
 inoremap <silent><expr> <C-Space> compe#complete()
@@ -85,19 +84,31 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+ 
+" LSP
+nnoremap gd <cmd>lua vim.lsp.buf.declaration()<cr>
+nnoremap K <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap gi <cmd>lua vim.lsp.buf.implementation()<cr>
+nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
+nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
+nnoremap <leader>ds <cmd>lua require('karllson.telescope').document_symbols()<cr>
+nnoremap <leader>ws <cmd>lua require('karllson.telescope').workspace_symbols()<cr>
+nnoremap <leader>gr <cmd>lua require('karllson.telescope').lsp_references()<cr>
+nnoremap <leader>gd <cmd>lua require('karllson.telescope').lsp_definitions()<cr>
+
+" Telescope
+nnoremap <leader>ft <cmd>lua require('karllson.telescope').file_tree()<cr>
+nnoremap <leader>fg <cmd>lua require('karllson.telescope').git_files()<cr>
+nnoremap <leader>ff <cmd>lua require('karllson.telescope').find_files()<cr>
+nnoremap <leader>gg <cmd>lua require('karllson.telescope').grep()<cr>
 
 " Testing
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 nnoremap <leader>tl :TestLast<CR>
-
-" Quickfix List
-" Taken from the awesome prime
-nnoremap <leader>qk :cnext<CR>
-nnoremap <leader>qj :cprev<CR>
-nnoremap <leader>ql :call ToggleQFList(1)<CR>
-nnoremap <leader>qll :call ToggleQFList(0)<CR>
 
 " Copy to and from clipboard
 nnoremap <leader>yy "+y

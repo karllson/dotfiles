@@ -5,7 +5,7 @@ ZSH_THEME="avit"
 # SET ESCAPE TIMEOUT
 KEYTIMEOUT=1
 
-plugins=(git yarn npm)
+plugins=(git yarn npm zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
@@ -17,6 +17,13 @@ alias tf="terraform"
 alias soundreset="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias python="python3"
 alias dotfiles="vim ~/dotfiles"
+alias gs="git status"
+alias gl="git log"
+alias gd="git diff"
 
 
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+
+# Source stuff
+source ${(q-)PWD}/Git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

@@ -35,25 +35,4 @@ M.grep_current = function()
     require('telescope.builtin').current_buffer_fuzzy_find()
 end
 
-M.document_symbols = function()
-    require('telescope.builtin').lsp_document_symbols({
-        previewer = false
-    })
-end
-
-M.workspace_symbols = function()
-    require('telescope.builtin').lsp_workspace_symbols({
-        previewer = false
-    })
-end
-
-M.lsp_references = function()
-    require('telescope.builtin').lsp_references()
-end
-
-M.lsp_definitions = function()
-    require('telescope.builtin').lsp_definitions()
-end
-
-
 return M

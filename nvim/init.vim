@@ -86,17 +86,17 @@ inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
  
 " LSP
-nnoremap gd <cmd>lua vim.lsp.buf.declaration()<cr>
+nnoremap gd <cmd>Telescope lsp_definitions<cr>
+nnoremap gr <cmd>Telescope lsp_references<cr>
+nnoremap gi <cmd>Telescope lsp_implementations<cr>
+nnoremap <leader>ds <cmd>Telescope lsp_document_symbols<cr>
+nnoremap <leader>ws <cmd>Telescope lsp_workspace_symbols<cr>
 nnoremap K <cmd>lua vim.lsp.buf.hover()<cr>
-nnoremap gi <cmd>lua vim.lsp.buf.implementation()<cr>
 nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
-nnoremap <leader>ds <cmd>lua require('karllson.telescope').document_symbols()<cr>
-nnoremap <leader>ws <cmd>lua require('karllson.telescope').workspace_symbols()<cr>
-nnoremap <leader>gr <cmd>lua require('karllson.telescope').lsp_references()<cr>
-nnoremap <leader>gd <cmd>lua require('karllson.telescope').lsp_definitions()<cr>
+    
 
 " Telescope
 nnoremap <leader>ft <cmd>lua require('karllson.telescope').file_tree()<cr>

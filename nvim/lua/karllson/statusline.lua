@@ -58,5 +58,12 @@ gls.right[1] = {
     highlight = {'#8FBCBB', 'bold'},
   }
 }
+gls.right[2] = {
+  LinePercent = {
+    separator = ' ',
+    provider = 'LinePercent',
+    highlight = {'#8FBCBB', 'bold'},
+  }
+}
 
-gls.right[2] = spacer 
+gls.right[3] = spacer 

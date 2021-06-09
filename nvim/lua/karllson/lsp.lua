@@ -65,3 +65,5 @@ nvim_lsp.intelephense.setup({
     on_attach = on_attach
 })
 
+nvim_lsp.pyls.setup{}
+

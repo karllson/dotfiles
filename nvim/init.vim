@@ -65,6 +65,7 @@ Plug 'ryanoasis/vim-devicons'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'fhill2/telescope-ultisnips.nvim'
 call plug#end()
 
 " ------------------------------------------------------
@@ -115,6 +116,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetDirectories=['~/dotfiles/snippets']
+nnoremap <leader>sn <cmd>lua require'telescope'.extensions.ultisnips.ultisnips{}<cr>
 
 " Testing
 nnoremap <leader>tn :TestNearest<CR>

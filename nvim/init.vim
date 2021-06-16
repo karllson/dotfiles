@@ -61,6 +61,10 @@ Plug 'sbdchd/neoformat'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'yamatsum/nvim-web-nonicons'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " ------------------------------------------------------
@@ -106,6 +110,12 @@ nnoremap <leader>fg <cmd>lua require('karllson.telescope').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('karllson.telescope').find_files()<cr>
 nnoremap <leader>gg <cmd>lua require('karllson.telescope').grep()<cr>
 
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=['~/dotfiles/snippets']
+
 " Testing
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
@@ -122,5 +132,10 @@ vnoremap <leader>pp "+p
 let g:NERDTreeWinSize=60
 " colorscheme gruvbox
 colorscheme OceanicNext
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
 
 lua require('init')

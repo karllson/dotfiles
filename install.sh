@@ -15,7 +15,4 @@ ln -sf ~/dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 # TMux
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-# Kitty terminal
-ln -sf ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf 
-
 

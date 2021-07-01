@@ -28,6 +28,7 @@ set scrolloff=8
 set signcolumn=yes
 set completeopt=menuone,noselect
 set shortmess+=c " Don't pass messages to ins-completion-menu
+set guicursor=
 
 filetype off
 syntax enable
@@ -35,7 +36,6 @@ filetype plugin indent on
 
 " Vundle Plugin Manager
 call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch' " delete buffers etc
 " Telescope
@@ -49,7 +49,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'ap/vim-buftabline'
-Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
 " Plebvim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
@@ -66,20 +66,20 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'fhill2/telescope-ultisnips.nvim'
+" GIT
+Plug 'TimUntersberger/neogit'
 call plug#end()
 
 " ------------------------------------------------------
 " KeyMaps
 " ------------------------------------------------------
 nnoremap qqq :qa!<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <Leader>n :NERDTreeFind<cr>
 nnoremap <C-h> <C-W><Left>
 nnoremap <C-j> <C-W><Down>
 nnoremap <C-k> <C-W><Up>
 nnoremap <C-l> <C-W><Right>
-nnoremap <Leader>w :bd<CR>
-nnoremap <Leader>s :w!<CR>
+nnoremap <C-w> :bd<CR>
+nnoremap <C-s> :w!<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprevious<CR>
 
@@ -102,14 +102,20 @@ nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<cr>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
     
-
 " Telescope
 nnoremap <leader>ft <cmd>lua require('karllson.telescope').file_tree()<cr>
+nnoremap <leader>fb <cmd>lua require('karllson.telescope').file_browser()<cr>
 nnoremap <leader>ct <cmd>lua require('karllson.telescope').current_tree()<cr>
 nnoremap <leader>gc <cmd>lua require('karllson.telescope').grep_current()<cr>
 nnoremap <leader>fg <cmd>lua require('karllson.telescope').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('karllson.telescope').find_files()<cr>
 nnoremap <leader>gg <cmd>lua require('karllson.telescope').grep()<cr>
+
+" Nerdtree
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-c> :NERDTreeFind<CR>
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
